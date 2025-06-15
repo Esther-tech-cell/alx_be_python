@@ -1,0 +1,23 @@
+def safe_divide(numerator, denominator):
+    """
+    Performs division safely, handling ZeroDivisionError and ValueError
+    for non-numeric inputs.
+
+    Args:
+        numerator (str): The numerator as a string.
+        denominator (str): The denominator as a string.
+
+    Returns:
+        str: A message indicating the result of the division or an error.
+    """
+    try:
+        num = float(numerator)
+        den = float(denominator)
+    except ValueError:
+        return "Error: Please enter numeric values only."
+
+    try:
+        result = num / den
+        return f"The result of the division is {result:.1f}"
+    except ZeroDivisionError:
+        return "Error: Cannot divide by zero."

@@ -1,0 +1,54 @@
+from library_management import Book, Library
+
+def main():
+    """
+    Main function to demonstrate the Library and Book classes.
+    """
+    # Setup a small library
+    library = Library()
+    library.add_book(Book("Brave New World", "Aldous Huxley"))
+    library.add_book(Book("1984", "George Orwell"))
+    library.add_book(Book("The Great Gatsby", "F. Scott Fitzgerald")) # Added for more testing
+
+    # Initial list of available books
+    print("\n--- Available books after setup: ---")
+    library.list_available_books()
+
+    # Simulate checking out a book
+    print("\n--- Simulating checking out '1984': ---")
+    library.check_out_book("1984")
+    print("\n--- Available books after checking out '1984': ---")
+    library.list_available_books()
+
+    # Try checking out a book that's already checked out
+    print("\n--- Simulating checking out '1984' again: ---")
+    library.check_out_book("1984")
+
+    # Try checking out a non-existent book
+    print("\n--- Simulating checking out 'Non-Existent Book': ---")
+    library.check_out_book("Non-Existent Book")
+
+    # Simulate returning a book
+    print("\n--- Simulating returning '1984': ---")
+    library.return_book("1984")
+    print("\n--- Available books after returning '1984': ---")
+    library.list_available_books()
+
+    # Try returning a book that was not checked out
+    print("\n--- Simulating returning 'Brave New World': ---")
+    library.return_book("Brave New World")
+
+    # Try returning a non-existent book
+    print("\n--- Simulating returning 'Another Non-Existent Book': ---")
+    library.return_book("Another Non-Existent Book")
+
+    # Check out all books to see "No books are currently available."
+    print("\n--- Checking out all remaining books: ---")
+    library.check_out_book("Brave New World")
+    library.check_out_book("The Great Gatsby")
+    print("\n--- Available books after checking out all: ---")
+    library.list_available_books()
+
+
+if __name__ == "__main__":
+    main()
